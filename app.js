@@ -6,7 +6,7 @@ const adminRoutes = require('./routes/adminRoutes');
 console.log('🚀 Starting Finance Platform API (MVC Structure)...');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use('/api/auth', authRoutes);
@@ -29,6 +29,9 @@ app.get('/health', (req, res) => {
         version: '2.0.0'
     });
 });
+
+
+app.get('/', (req, res) => res.json({ message: 'Finance Platform API' }));
 
 // 404 handler
 app.use('*', (req, res) => {
